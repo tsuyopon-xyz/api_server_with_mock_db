@@ -15,7 +15,20 @@ class Todo {
   }
 }
 
+// データを事前に5件ほどダミーのDBに追加しておく
+for (let i = 0; i < 5; i++) {
+  const todo = new Todo({
+    title: 'タイトル' + i,
+    body: '詳細文' + i,
+  });
+  todos.push(todo);
+}
+
 // ここより上は、プライベート空間。つまり、外部ファイルから直接アクセスできない
 
 // ここにCRUD機能をつける
-module.exports = {};
+module.exports = {
+  findAll: () => {
+    return todos;
+  }
+};
