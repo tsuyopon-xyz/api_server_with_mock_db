@@ -12,7 +12,8 @@
   "devDependencies": {
     "mocha": "^5.2.0",
     "nodemon": "^1.18.10",
-    "power-assert": "^1.6.1"
+    "power-assert": "^1.6.1",
+    "supertest": "^3.4.2"
   },
   "dependencies": {
     "express": "^4.16.4"
