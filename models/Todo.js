@@ -68,5 +68,24 @@ module.exports = {
     todo.updatedAt = new Date();
 
     return todo;
+  },
+  remove: (id) => {
+    if (typeof id !== 'number' || id < 1) {
+      throw new Error('idは必須です(1以上の数値)');
+    }
+
+    const targetIndex = todos.findIndex(todo => id === todo.id);
+
+    // ドキュメントより
+    //   - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+    //   - findIndex() メソッドは、配列内の要素が指定されたテスト関数を満たす場合、
+    //     配列内のインデックスを返します。そうでない場合は-1を返します。
+    if (targetIndex === -1) {
+      throw new Error('idに該当するtodoが存在しません');
+    }
+
+    const removedTodo = todos.splice(targetIndex, 1)[0];
+
+    return removedTodo;
   }
 };
