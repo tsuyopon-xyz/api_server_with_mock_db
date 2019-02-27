@@ -34,5 +34,18 @@ module.exports = {
     } catch (error) {
       res.status(400).json({message: error.message});
     }
+  },
+
+  deleteTodo: (req, res) => {
+    const id = req.params.id;
+    const parsedId = parseInt(id, 10);
+
+    try {
+      const deletedTodo = Todo.remove(parsedId);
+
+      res.status(200).json(deletedTodo);
+    } catch (error) {
+      res.status(400).json({message: error.message});
+    }
   }
 };
