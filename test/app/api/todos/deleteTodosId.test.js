@@ -15,10 +15,6 @@ const VALID_ID = 1;
 const INVALID_ID = 9999999999;
 
 describe('test 「DELETE /api/todos/:id」', () => {
-  afterEach((done) => {
-    requestHelper.closeServer(done);
-  });
-
   it('idが不正な場合はエラーになる', async () => {
     const response = await requestHelper.request({
       method: 'delete',
